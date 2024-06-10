@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Varela+Round&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.swiggylogo {
+    color: #F15700;
+    font-size: 3.3rem;
+
+}
+.color{
+    color: #F15700;
+}
+
+.logo {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    letter-spacing: 1.9px;
+    color: #F15700;
+    /* border-right: 1px solid black; */
+
+}
+.line{
+    height:25px;
+    width: 0.1px;
+    background-color: rgb(191, 191, 191);
+    transform: rotate(180deg);
+    margin-left: 10px;
+}
+.logo-section{
+    display: flex;
+    align-items: center;
+}
+.nav{
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    gap: 50px;
+    align-items: center;
+    padding: 5px;
+}
+.input-field{
+    outline: none;
+    border: none;
+    /* padding: 10px; */
+    background-color: transparent;
+    width:100%;
+}
+.input-field::placeholder{
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+}
+.input{
+    background-color: rgba(240,240,245);
+    display: flex;
+    width: 23%;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+.search{
+    font-size: 20px;
+}
+.location{
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    
+}
+.user{
+    font-size: 45px;
+}

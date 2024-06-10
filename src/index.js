@@ -4,11 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import UserContextProvider from './context/contextProvider';
+import { GlobalContext } from './context/globalcontext';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <UserContextProvider>
+
+
     <App />
-  </React.StrictMode>
+
+  </UserContextProvider>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,0 +1,83 @@
+.scroll-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 60 auto;
+
+    /* Ensure the overflow is hidden to avoid showing native scrollbar */
+}
+
+.scroll-container {
+    display: flex;
+    overflow-x: scroll;
+    /* Enable horizontal scrolling */
+    white-space: nowrap;
+    gap: 20px;
+    width: 100%;
+    /* margin: 20px; */
+    scroll-behavior: smooth;
+
+
+}
+
+/* Hide scrollbar for WebKit-based browsers */
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+
+.scroll-container {
+    -ms-overflow-style: none;
+
+    scrollbar-width: none;
+
+}
+
+.scroll-item {
+    flex: 0 0 auto;
+    width: 150px;
+    margin-right: 10px;
+    background-color: #ccc;
+    padding: 20px;
+    text-align: center;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: -4%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.left-btn {
+    right: 40px;
+}
+
+.right-btn {
+    right: 0;
+}
+
+.disabled {
+    opacity: 0.5;
+    /* cursor: not-allowed; */
+}
+
+.arrow {
+    background-color: #c2c2c29a;
+    padding: 7px;
+    border-radius: 50%;
+    font-size: 30px;
+    color: rgba(2, 6, 12, 0.648);
+    font-family: bold;
+}
+
+.crousal {
+    position: relative;
+}
