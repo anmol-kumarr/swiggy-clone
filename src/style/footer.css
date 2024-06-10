@@ -1,0 +1,86 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.download-swiggy {
+    margin-top: 30px;
+    height: 200px;
+    display: flex;
+    /* max-width: 1000px; */
+    /* margin: 0 auto; */
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(240, 240, 245);
+}
+
+.download-heading {
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 700;
+    color: rgba(2, 6, 12, 0.889);
+    font-size: 1.8rem;
+    max-width: 40%;
+
+}
+
+.download-image {
+    display: flex;
+}
+
+.download-cont {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-section {
+
+    background-color: black;
+    color: aliceblue;
+    height: 400px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    padding-top: 50px;
+    gap: 50px;
+}
+
+.footer-heading {
+    color: aliceblue;
+    font-family: 'Gilroy', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-logo {
+    font-size: 2.7rem;
+    color: aliceblue;
+}
+
+.footer-logo-cont {
+    display: flex;
+    align-items: center;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.footer-section li {
+    margin: 15px;
+    list-style: none;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 500;
+    color:rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+}
+
+
+
+.footer-links p {
+    font-size: 1.3rem;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+}

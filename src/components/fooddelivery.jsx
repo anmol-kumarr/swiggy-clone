@@ -6,7 +6,7 @@ import '../style/fooddelivery.css'
 function FoodDelivery() {
 
     const { resturantChains, foodDelivery } = useContext(UserContext)
-    console.log(foodDelivery)
+    // console.log(foodDelivery)
     return (
         <div className="delivery-section">
             <h2>Restaurants with online food delivery in Patna</h2>
@@ -38,7 +38,7 @@ function FoodDelivery() {
 
 
             </div>
-
+<hr />
         </div>
     )
 }

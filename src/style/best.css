@@ -1,0 +1,10 @@
+.best-cont{
+    max-width: 1000px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.every-resturant{
+    margin-top: 20px;
+}
