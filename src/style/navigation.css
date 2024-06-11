@@ -13,7 +13,8 @@
     font-size: 3.3rem;
 
 }
-.color{
+
+.color {
     color: #F15700;
 }
 
@@ -26,18 +27,21 @@
     /* border-right: 1px solid black; */
 
 }
-.line{
-    height:25px;
+
+.line {
+    height: 25px;
     width: 0.1px;
     background-color: rgb(191, 191, 191);
     transform: rotate(180deg);
     margin-left: 10px;
 }
-.logo-section{
+
+.logo-section {
     display: flex;
     align-items: center;
 }
-.nav{
+
+.nav {
     display: flex;
     justify-content: center;
     max-width: 1200px;
@@ -45,30 +49,35 @@
     align-items: center;
     padding: 5px;
 }
-.input-field{
+
+.input-field {
     outline: none;
     border: none;
     /* padding: 10px; */
     background-color: transparent;
-    width:100%;
+    width: 100%;
 }
-.input-field::placeholder{
+
+.input-field::placeholder {
     font-family: "Raleway", sans-serif;
     font-weight: 500;
 }
-.input{
-    background-color: rgba(240,240,245);
+
+.input {
+    background-color: rgba(240, 240, 245);
     display: flex;
     width: 23%;
     align-items: center;
     padding: 10px;
     border-radius: 5px;
 }
-.search{
+
+.search {
     font-size: 20px;
 }
-.location{
-    
+
+.location {
+
     position: relative;
     display: flex;
     align-items: center;
@@ -77,11 +86,56 @@
     font-weight: 400;
     cursor: pointer;
 }
-.user{
+
+.user {
     font-size: 45px;
 }
-.location-floating-cont{
+
+.floating-location-section {
     position: absolute;
-    top: -1px;
+    top: 1px;
+}
+
+.location-floating-cont {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 15px;
+    gap: 10px;
     background-color: white;
+    box-shadow: 0.5px 0.5px 5px rgb(202, 202, 202);
+}
+
+.location-input-field {
+    outline: none;
+    border: none;
+    width: 250px;
+    font-size: 16px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 500;
+
+}
+
+.location-icon-search-section {
+    color: #F15700;
+    font-size: 1.1rem;
+}
+
+.location-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+}
+.locate-me{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #F15700;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 700;
+}
+hr.hr{
+    /* background-color: rgb(193, 193, 193); */
+    border: 1px solid rgb(236, 236, 236);
 }
