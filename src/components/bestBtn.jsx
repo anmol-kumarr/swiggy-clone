@@ -5,10 +5,10 @@ function BestBtn(props) {
     const heading = props.heading
     const [showmore, setShowmore] = useState(false)
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        data.length > 11 ? (setShowmore(true)) : (setShowmore(false))
-    }, [])
+    //     data.length > 11 ? (setShowmore(false)) : (setShowmore(true))
+    // }, [])
 
     function showMoreHandler() {
         setShowmore(!showmore)
@@ -20,7 +20,7 @@ function BestBtn(props) {
             <h2 className="best-heading">{heading}</h2>
             <div className='best-card-section'>
                 {
-                    showmore === true ? (data.slice(0, 11).map((item, index) => (<div className="best-btn" key={index}>{
+                    showmore === false ? (data.slice(0, 11).map((item, index) => (<div className="best-btn" key={index}>{
                         item.text.length > 22 ? (item.text.substring(0, 22) + "...") : (item.text)
                     }</div>)))
 
@@ -32,7 +32,7 @@ function BestBtn(props) {
 
                 
                 {
-                    showmore===true?(<div className='best-btn bold' onClick={showMoreHandler}>Show More</div>):(<div className='best-btn bold' onClick={showMoreHandler}>Show less</div>)
+                    showmore===false?(<div className='best-btn bold' onClick={showMoreHandler}>Show More</div>):(<div className='best-btn bold' onClick={showMoreHandler}>Show less</div>)
                 }
                 
             </div>

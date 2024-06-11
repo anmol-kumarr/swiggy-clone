@@ -6,15 +6,18 @@ import reportWebVitals from './reportWebVitals';
 
 import UserContextProvider from './context/contextProvider';
 import { GlobalContext } from './context/globalcontext';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <UserContextProvider>
 
+  <BrowserRouter>
+    <UserContextProvider>
 
-    <App />
+      <App />
 
-  </UserContextProvider>
+    </UserContextProvider>
+  </BrowserRouter>
 
 );
 

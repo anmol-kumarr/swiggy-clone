@@ -68,13 +68,20 @@
     font-size: 20px;
 }
 .location{
+    
+    position: relative;
     display: flex;
     align-items: center;
     gap: 9px;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
-    
+    cursor: pointer;
 }
 .user{
     font-size: 45px;
+}
+.location-floating-cont{
+    position: absolute;
+    top: -1px;
+    background-color: white;
 }
