@@ -82,9 +82,11 @@
     display: flex;
     align-items: center;
     gap: 9px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
+    font-family: 'Gilroy', sans-serif;
+    /* font-family: "Poppins", sans-serif; */
+    font-weight: 600;
     cursor: pointer;
+    color: rgba(0, 0, 0, 0.771);
 }
 
 .user {
@@ -94,6 +96,7 @@
 .floating-location-section {
     position: absolute;
     top: 1px;
+    z-index: 2;
 }
 
 .location-floating-cont {
@@ -125,17 +128,43 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 5px;
+    /* padding: 5px; */
 }
 .locate-me{
     display: flex;
     align-items: center;
     gap: 10px;
+    height: 20px;
     color: #F15700;
     font-family: 'Gilroy', sans-serif;
     font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 hr.hr{
     /* background-color: rgb(193, 193, 193); */
     border: 1px solid rgb(236, 236, 236);
+}
+.suggested-location{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 62px;
+}
+.location-low-color-arrow{
+    color: rgba(2, 6, 12, 0.45);
+    font-size: 1.1rem;
+}
+.location-secondary-text{
+    color: rgba(2, 6, 12, 0.45);
+    font-family: 'Gilroy', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+
+}
+.location-primary-text{
+    color: rgba(2, 6, 12, 0.75);
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
 }
