@@ -7,13 +7,22 @@ import '../style/whatson.css'
 import { FaArrowRight } from "react-icons/fa";
 import Scrollbar from "./scrollbar";
 function WhatsOnYour() {
-    const { whatsOnYourMind,setSlider,slider } = useContext(UserContext)
+    const { whatsOnYourMind, setSlider, slider, setCollectionID, setCollectionName, fetchItemCollection } = useContext(UserContext)
+
     // console.log(whatsOnYourMind)
     const url = "https://media-assets.swiggy.com/"
-    useEffect(()=>{
-        
+    useEffect(() => {
+
         setSlider(true)
-    },[])
+    }, [])
+    function navigateToCollesction(entityId, item) {
+        const CollectionID = entityId.slice(36, 41)
+        setCollectionID(CollectionID)
+        setCollectionName(item)
+        fetchItemCollection()
+
+    }
+    // console.log(whatsOnYourMind)
     return (
 
 
@@ -29,7 +38,7 @@ function WhatsOnYour() {
                         (
                             // <OnYourMindCard key={arr.id} data={arr} ></OnYourMindCard>)
 
-                            <div className='card-img' key={arr.id}>
+                            <div onClick={() => navigateToCollesction(arr.entityId, arr.action.text)} className='card-img' key={arr.id}>
                                 <img src={url + arr.imageId} alt="" height={150} />
                             </div>
 
@@ -40,9 +49,9 @@ function WhatsOnYour() {
 
             </div>
 
-<hr />
+            <hr />
         </div>
-        
+
 
     )
 }

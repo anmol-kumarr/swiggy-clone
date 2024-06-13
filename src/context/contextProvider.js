@@ -57,7 +57,7 @@ function UserContextProvider({ children }) {
             setSwiggyDownload(data2.data.cards[9].card.card)
             console.log(bestplace)
             // setFoodDelivery()
-            console.log(data2.data.cards)
+            // console.log(data2.data.cards)
         }
         catch (err) {
             console.log(err)
@@ -69,8 +69,25 @@ function UserContextProvider({ children }) {
 
 
     const [suggestedLocation, setsuggestedLocation] = useState([])
-    const[usercoordinates,setUserCoordinates]=useState({})
+    const [usercoordinates, setUserCoordinates] = useState({})
+    const [collectionID, setCollectionID] = useState('')
+    const [collectionName, setCollectionName] = useState('')
+    const [collectionData,setCollectionData]=useState([])
 
+
+    const collectionUrl = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.6102763&lng=85.1338404&collection=${collectionID}&tags=layout_CCS_${collectionName}&sortBy=&filters=&type=rcv2&offset=0&page_type=null
+`
+    async function fetchItemCollection() {
+        try {
+            const response=await fetch(collectionUrl)
+            const data=await response.json()
+            console.log(data)
+
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
     const value = {
         whatsOnYourMind,
         setWhatsonyourmind,
@@ -89,7 +106,10 @@ function UserContextProvider({ children }) {
         swiggyDownload,
         suggestedLocation,
         setsuggestedLocation,
-        usercoordinates,setUserCoordinates
+        usercoordinates, setUserCoordinates,
+        collectionID, setCollectionID,
+        collectionName, setCollectionName,
+        fetchItemCollection
 
 
 
