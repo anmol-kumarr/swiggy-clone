@@ -107,7 +107,7 @@ function Navigation() {
 
                     {isVisible && (
                         <div ref={divRef} className="location-floating-cont" >
-                            <div>
+                            <div className="predefine-location-heading">
 
                                 <div className="location-input">
                                     <FaLocationArrow className="location-icon-search-section" />
@@ -115,11 +115,11 @@ function Navigation() {
 
                                     <input onChange={loctionHandler} value={location} className="location-input-field" type="text" placeholder="Search for Area StreetName..." />
                                 </div>
-                            </div>
-                            <hr className="hr" />
-                            <div className="locate-me" onClick={handlingGeoPostion}>
-                                <FaLocationArrow className="location-icon-search-section" />
-                                <span>Locate me using GPS</span>
+                                <hr className="hr" />
+                                <div className="locate-me" onClick={handlingGeoPostion}>
+                                    <FaLocationArrow className="location-icon-search-section" />
+                                    <span>Locate me using GPS</span>
+                                </div>
                             </div>
 
 
