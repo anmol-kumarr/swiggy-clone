@@ -61,7 +61,7 @@ function Navigation() {
         }
     }
     const locationList = suggestedLocation.data
-    console.log(locationList)
+    // console.log(locationList)
 
 
 
@@ -87,7 +87,7 @@ function Navigation() {
 
 
 
-    console.log(usercoordinates)
+    // console.log(usercoordinates)
 
 
     return (
@@ -99,7 +99,7 @@ function Navigation() {
             </div>
             <div className="location" onClick={handleDivClick}>
                 <FaLocationArrow className="color search " />
-                <span>Setup your precise location</span>
+                <span className="setup-location">Setup your precise location</span>
                 <FaAngleDown className="color"></FaAngleDown>
 
 
@@ -121,8 +121,6 @@ function Navigation() {
                                     <span>Locate me using GPS</span>
                                 </div>
                             </div>
-
-
                             <div>
                                 {
                                     Array.isArray(locationList) && (
@@ -155,7 +153,6 @@ function Navigation() {
                     )}
 
 
-                    {/* <input type="text" value={inputvalue}  /> */}
                 </div>
             </div>
             <div className="input">
