@@ -103,7 +103,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    padding: 15px;
+    padding: 10px;
     gap: 10px;
     background-color: white;
     box-shadow: 0.5px 0.5px 5px rgb(202, 202, 202);
@@ -113,6 +113,7 @@
     outline: none;
     border: none;
     width: 250px;
+    height: 30px;
     font-size: 16px;
     font-family: 'Gilroy', sans-serif;
     font-weight: 500;
@@ -122,6 +123,12 @@
 .location-icon-search-section {
     color: #F15700;
     font-size: 1.1rem;
+}
+.predefine-location-heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
 }
 
 .location-input {
@@ -133,13 +140,14 @@
 .locate-me{
     display: flex;
     align-items: center;
+    text-align: center;
     gap: 10px;
     height: 20px;
     color: #F15700;
     font-family: 'Gilroy', sans-serif;
     font-weight: 700;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 hr.hr{
     /* background-color: rgb(193, 193, 193); */
