@@ -55,7 +55,7 @@ function UserContextProvider({ children }) {
             setBestCuisines(data2.data.cards[7].card.card.brands)
             // console.log(data2.data.cards[6].card.card.brands)
             setSwiggyDownload(data2.data.cards[9].card.card)
-            console.log(bestplace)
+            // console.log(bestplace)
             // setFoodDelivery()
             // console.log(data2.data.cards)
         }
@@ -72,16 +72,30 @@ function UserContextProvider({ children }) {
     const [usercoordinates, setUserCoordinates] = useState({})
     const [collectionID, setCollectionID] = useState('')
     const [collectionName, setCollectionName] = useState('')
-    const [collectionData,setCollectionData]=useState([])
+    // const [collectionData, setCollectionData] = useState([])
 
+    console.log(collectionID)
 
-    const collectionUrl = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.6102763&lng=85.1338404&collection=${collectionID}&tags=layout_CCS_${collectionName}&sortBy=&filters=&type=rcv2&offset=0&page_type=null
-`
+    console.log(collectionName)
+    const collectionUrl = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.6102763&lng=85.1338404&collection=${collectionID}&tags=layout_CCS_${collectionName}&sortBy=&filters=&type=rcv2&offset=0&page_type=null`
+    const [ItemData, setItemData] = useState({})
     async function fetchItemCollection() {
         try {
-            const response=await fetch(collectionUrl)
-            const data=await response.json()
-            console.log(data)
+            const response = await fetch(collectionUrl)
+            const data = await response.json()
+
+
+            // Check if the data structure is as expected
+            if (data.data && data.data.cards && data.data.cards.length > 0) {
+                const collectionItemData = data.data.cards[0];
+                console.log(collectionItemData.card.card.title); // Output: Biryani
+            } else {
+                console.error('The data structure is not as expected');
+            }
+            // const collectionItemData = data.cards[0]
+
+            // setItemData(collectionItemData)
+            // console.log(collectionItemData)
 
         }
         catch (err) {
@@ -109,7 +123,8 @@ function UserContextProvider({ children }) {
         usercoordinates, setUserCoordinates,
         collectionID, setCollectionID,
         collectionName, setCollectionName,
-        fetchItemCollection
+        fetchItemCollection,
+        ItemData
 
 
 
