@@ -13,7 +13,6 @@ function Card({ arr }) {
                     {
 
                         arr.info.name.length > 22 ? (arr.info.name.substring(0, 22) + "...") : (arr.info.name)
-                        // {arr.info.name}
                     }
                 </div>
                 <div className="rating">
@@ -21,7 +20,7 @@ function Card({ arr }) {
                         {arr.info.avgRating}
                     </span>
                     <span className="dot-section">
-                        {/* <BsDot className="dot" /> */}
+                    
                         <GoDotFill className="dot" />
                         {arr.info.sla.slaString}
                     </span>

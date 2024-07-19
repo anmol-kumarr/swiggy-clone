@@ -6,6 +6,7 @@ import { useContext } from "react"
         const {collectionItemData} = useContext(UserContext)
         const itemHeading=collectionItemData
         console.log(itemHeading)
+        console.log('hello world')
         // const itemSubHeading=
         // const resturantsNo=
         return (
@@ -13,7 +14,7 @@ import { useContext } from "react"
                 <Navigation></Navigation>
                 <div>
                     <div>
-                        {/* <h1>{itemHeading}</h1> */}
+                        <h1>{itemHeading}</h1>
                         <p>
 
                         </p>
