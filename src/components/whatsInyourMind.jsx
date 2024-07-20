@@ -23,7 +23,7 @@ function WhatsOnYour() {
         setCollectionID(CollectionID)
         setCollectionName(item)
         fetchItemCollection()
-        // navigate('./resturants')
+        navigate('./resturants')
 
     }
     // console.log(whatsOnYourMind)

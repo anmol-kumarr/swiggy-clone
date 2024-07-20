@@ -21,11 +21,6 @@ function FoodDelivery() {
                             <Card key={arr.info.id} arr={arr}></Card>
                         ))
                     }
-                
-
-
-                
-
                     {
 
                         resturantChains.map((arr) => (
