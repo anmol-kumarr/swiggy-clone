@@ -35,13 +35,13 @@ function WhatsOnYour({ loading,WhatsOnYourMindData }) {
 
                     {
                         loading === true ? (
-                            <div className="scroll-container">
+                            <>
                                 {Array(9).fill().map((_, index) => (
                                     <ShimmerCircularImage key={index} size={100} caption />
                                 ))}
-                            </div>
+                            </>
                         ) : (
-                            <div className="scroll-container">
+                            <>
                                 {
                                     WhatsOnYourMindData.map((arr) =>
                                     (
@@ -53,7 +53,7 @@ function WhatsOnYour({ loading,WhatsOnYourMindData }) {
 
                                     ))
                                 }
-                            </div>
+                            </>
                         )
                     }
 

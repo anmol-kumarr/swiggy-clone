@@ -20,6 +20,11 @@ function HomePage() {
     const[foodDelivery,setFoodDelivery]=useState([])
     useEffect(() => {
         const url = 'https://foodfire.onrender.com/api/restaurants?lat=25.59080&lng=85.13480&page_type=DESKTOP_WEB_LISTING'
+
+        
+// https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.6102763&lng=85.1338404&restaurantId=88781&submitAction=ENTER
+
+
         const ftechHomeData = async () => {
             try {
                 setLoading(true)
@@ -44,10 +49,6 @@ function HomePage() {
         
         
     }, [])
-    // const whatsOnYourMind=homePageData.data.cards[0].card.card.imageGridCards.info;
-    // const resturnatsChains=homePageData.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
-    // const foodDelivery
-    // console.log(whatsInyourMind)
     return (
         <div>
             {
@@ -57,7 +58,7 @@ function HomePage() {
                     <Hero></Hero>
                     <WhatsOnYour  WhatsOnYourMindData={whatsInyourMind}  loading={loading}></WhatsOnYour>
                     <ResturantChains resturantChains={resturantChains} loading={loading} ></ResturantChains>
-                    <FoodDelivery foodDelivery={foodDelivery} loading={loading} ></FoodDelivery>
+                    <FoodDelivery resturantChains={resturantChains} foodDelivery={foodDelivery} loading={loading} ></FoodDelivery>
                     <Best></Best>
                     <Footer></Footer>
                 </div>
