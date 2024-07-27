@@ -9,8 +9,8 @@ import UserContext from './context/userContext';
 
 import HomePage from './pages/homePage';
 import About from './pages/about';
-import Resturants from './pages/resturants';
 import PagenotFound from './pages/pagenotfound';
+import Collections from './pages/collection';
 
 
 
@@ -30,7 +30,7 @@ function App() {
 
       <Routes>
         <Route path="/" index element={<HomePage />} />
-        <Route path="/resturants" element={<Resturants />} />
+        <Route path="/collection/:collection_id/:collection_type" element={<Collections/>} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<PagenotFound></PagenotFound>}></Route>
       </Routes>

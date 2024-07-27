@@ -13,7 +13,7 @@ import { ShimmerCircularImage } from "react-shimmer-effects";
 function WhatsOnYour({ loading,WhatsOnYourMindData }) {
     // const { whatsOnYourMind, setSlider, slider, setCollectionID, setCollectionName, fetchItemCollection } = useContext(UserContext)
     const[slider,setSlider]=useState(false)
-    console.log(WhatsOnYourMindData)
+    // console.log(WhatsOnYourMindData)
 
     // console.log(whatsOnYourMind)
     const url = "https://media-assets.swiggy.com/"
@@ -22,6 +22,21 @@ function WhatsOnYour({ loading,WhatsOnYourMindData }) {
 
         setSlider(true)
     }, [])
+    const navigate=useNavigate()
+    const navigateHandler=(arr)=>{
+        if(arr.entityId.length===6){
+            navigate(`/collection/${arr.entityId}/${arr.description}`)
+            // console.log(arr.entityId,arr.description)
+        }
+        else{
+            const id=arr.action.link.slice(35,40)
+            navigate(`/collection/${id}/${arr.description}`)
+            // console.log(id,arr.description)
+        }
+        // const id=arr.action.link.slice(35,40)        
+        // console.log(id)
+        // console.log(arr)
+    }
     return (
 
 
@@ -45,12 +60,9 @@ function WhatsOnYour({ loading,WhatsOnYourMindData }) {
                                 {
                                     WhatsOnYourMindData.map((arr) =>
                                     (
-                                    
-
-                                        <div className='card-img' key={arr.id}>
+                                        <div onClick={()=>navigateHandler(arr)} className='card-img' key={arr.id}>
                                             <img src={url + arr.imageId} alt="" height={150} />
                                         </div>
-
                                     ))
                                 }
                             </>

@@ -30,7 +30,7 @@ function HomePage() {
                 setLoading(true)
                 const response = await fetch(url)
                 const data = await response.json()
-                console.log(data)
+                // console.log(data)
                 setwhatsInYourMind(data.data.cards[0].card.card.imageGridCards.info)
                 setResturnatsChains(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
                 setFoodDelivery(data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
