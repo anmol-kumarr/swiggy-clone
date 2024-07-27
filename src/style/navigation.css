@@ -107,7 +107,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    padding: 10px;
+    padding: 15px;
     gap: 10px;
     background-color: white;
     box-shadow: 0.5px 0.5px 5px rgb(202, 202, 202);
@@ -144,24 +144,28 @@
 .locate-me{
     display: flex;
     align-items: center;
-    text-align: center;
+    /* text-align: center; */
+    
     gap: 10px;
-    height: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* height: 20px; */
     color: #F15700;
     font-family: 'Gilroy', sans-serif;
     font-weight: 700;
-    margin-top: 5px;
-    margin-bottom: 5px;
 }
 hr.hr{
     /* background-color: rgb(193, 193, 193); */
     border: 1px solid rgb(236, 236, 236);
+
 }
 .suggested-location{
     display: flex;
     align-items: center;
     gap: 10px;
-    height: 62px;
+    /* height: 62px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .location-low-color-arrow{
     color: rgba(2, 6, 12, 0.45);

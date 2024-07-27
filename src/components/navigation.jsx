@@ -120,6 +120,7 @@ function Navigation() {
                                     <FaLocationArrow className="location-icon-search-section" />
                                     <span>Locate me using GPS</span>
                                 </div>
+                                    {/* <hr className="hr" /> */}
                             </div>
                             <div>
                                 {
@@ -139,8 +140,20 @@ function Navigation() {
                                                         </div>
                                                         <div className="location-secondary-text">
                                                             {
-                                                                item.structured_formatting.secondary_text
+                                                                item.structured_formatting.secondary_text && item.structured_formatting.secondary_text.length>30?(
+                                                                    <>
+                                                                    {
+                                                                        item.structured_formatting.secondary_text.slice(0,30)
+                                                                    }
+                                                                    ...
+                                                                    </>
+                                                                ):(
+                                                                    <>
+                                                                    {item.structured_formatting.secondary_text}
+                                                                    </>
+                                                                )
                                                             }
+                                                        
                                                         </div>
                                                     </div>
                                                 </div>
