@@ -16,3 +16,14 @@
     display: flex;
     flex-wrap: wrap;
 }
+.food-delivery-heading{
+    font-family: 'Gilroy', sans-serif;
+    color: rgba(2, 6, 12, 0.75);
+    margin-bottom: 0px;
+}
+.shimmer-card{
+    box-shadow: none;
+}
+.shimmer-thumbnail{
+    border-radius: 20px;
+}

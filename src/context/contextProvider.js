@@ -73,9 +73,9 @@ function UserContextProvider({ children }) {
     const [collectionName, setCollectionName] = useState('')
     // const [collectionData, setCollectionData] = useState([])
 
-    console.log(collectionID)
+    // console.log(collectionID)
 
-    console.log(collectionName)
+    // console.log(collectionName)
     const collectionUrl = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.6102763&lng=85.1338404&collection=${collectionID}&tags=layout_CCS_${collectionName}&sortBy=&filters=&type=rcv2&offset=0&page_type=null`
     const [ItemData, setItemData] = useState({})
     async function fetchItemCollection() {
