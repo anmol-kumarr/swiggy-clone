@@ -1,0 +1,36 @@
+.collection-cont {
+    max-width: 1000px;
+    margin: 20px auto;
+    /* background-color: #f9f9f9; */
+    /* padding: 10px; */
+}
+
+.collection-discription {
+
+    font-family: 'Gilroy', sans-serif;
+    color: rgba(2, 6, 12, 0.75);
+    font-weight: 500;
+    font-size: large;
+    margin-top: 10px;
+    /* bottom:10px; */
+}
+
+.collection-heading {
+    color: rgba(2, 6, 12, 0.75);
+    font-family: 'Gilroy', sans-serif;
+    font-size:35px;
+}
+
+.collection-wrapper {
+    background-color: #f8f8f8;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: -50px;
+}
+.resturants-num{
+    color: rgba(2, 6, 12, 0.75);
+    font-family: 'Gilroy', sans-serif;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
