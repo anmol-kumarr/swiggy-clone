@@ -29,7 +29,7 @@ function ResturantChains({ resturantChains,loading }) {
                     ) : (
                         <>
                             {
-                                resturantChains.map((arr) => (<Card key={arr.id} arr={arr}></Card>))
+                                resturantChains.map((arr,index) => (<Card key={arr.info.id} arr={arr}></Card>))
                             }
                         </>
                     )

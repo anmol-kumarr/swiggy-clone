@@ -6,7 +6,15 @@ function Card({ arr }) {
     return (
         <div className="cards" key={arr.info.id}>
             <div className="images-section" >
-                <img  className="images" src={url+arr.info.cloudinaryImageId}  alt="" />
+                {
+                    // arr.info.cloudinaryImageId===false?(
+                    //     <div>
+                    //         <img src={arr.card.card.info.cloudinaryImageId} alt="" />
+                    //     </div>
+                    // ):(
+                        <img  className="images" src={url+arr.info.cloudinaryImageId}  alt="" />
+                    // )
+                }
             </div>
             <div className="text">
                 <div className="title">

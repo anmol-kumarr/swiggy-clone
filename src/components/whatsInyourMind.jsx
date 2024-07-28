@@ -26,12 +26,12 @@ function WhatsOnYour({ loading,WhatsOnYourMindData }) {
     const navigateHandler=(arr)=>{
         if(arr.entityId.length===6){
             navigate(`/collection/${arr.entityId}/${arr.description}`)
-            // console.log(arr.entityId,arr.description)
+            console.log(arr.entityId,arr.description)
         }
         else{
             const id=arr.action.link.slice(35,40)
             navigate(`/collection/${id}/${arr.description}`)
-            // console.log(id,arr.description)
+            console.log(id,arr.description)
         }
         // const id=arr.action.link.slice(35,40)        
         // console.log(id)

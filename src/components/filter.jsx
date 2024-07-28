@@ -14,7 +14,7 @@ function Btn() {
 
                 {
                     filter.map((arr) => (
-                        <div className="btn-cont" key={arr.index}>
+                        <div className="btn-cont" key={arr.id}>
 
                             <button className="btn">{arr.title}
 
