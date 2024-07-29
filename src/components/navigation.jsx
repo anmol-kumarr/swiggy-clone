@@ -6,11 +6,13 @@ import { IoPersonCircleSharp } from "react-icons/io5";
 import { useState, useRef, useEffect, useContext } from "react";
 import UserContext from "../context/userContext";
 import '../style/navigation.css'
+import { useDispatch } from "react-redux";
+import { add } from "../redux/locationSlice"
 function Navigation() {
 
     const [isVisible, setIsVisible] = useState(false);
     const divRef = useRef(null);
-    const { suggestedLocation, setsuggestedLocation, usercoordinates, setUserCoordinates } = useContext(UserContext)
+    const { suggestedLocation, setsuggestedLocation } = useContext(UserContext)
 
     const [dataForLocation, setDataForLocation] = useState([])
     useEffect(() => {
@@ -35,6 +37,8 @@ function Navigation() {
     }, []);
 
 
+
+    // fetching location suggestion____________________________________________________________________________
 
 
     const [location, setLocation] = useState('')
@@ -63,9 +67,13 @@ function Navigation() {
     const locationList = suggestedLocation.data
     // console.log(locationList)
 
+    // ---------------------------------------------------------------------------------------------------------
+    // setting coordinates_______________________________________________________________________________
 
-
-
+    const [userCoordinates, setUserCoordinates] = useState({
+        long: '',
+        lat: ''
+    })
     const handlingGeoPostion = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition)
@@ -75,17 +83,36 @@ function Navigation() {
         }
     }
     const showPosition = (position) => {
-        const UserCordinates = {
+        const coordinates = {
+            long: position?.coords?.longitude,
+            lat: position?.coords?.latitude
+        };
+        if(userCoordinates!==coordinates) setUserCoordinates(coordinates)
 
-            long: position.coords.longitude,
-            lat: position.coords.latitude,
-            // setUserCoordinates(position)
-
-        }
-        setUserCoordinates(UserCordinates)
+        sessionStorage.setItem('user-coordinates', JSON.stringify(coordinates))
     }
+    const dispatch = useDispatch()
+    const key = '608e32d016e7ab5423902da22030645b'
+
+    useEffect(() => {
+        const fetchCity=async()=>{
+            try{
+                const response=await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${userCoordinates.lat}&lon=${userCoordinates.long}&limit=1&appid=${key}`)
+                const city=await response.json()
+                dispatch(add({userCoordinates,city}))
+            }
+            catch(err){
+                console.log(err)
+                alert('Something went wrong in fetch city function')
+            }
+        }
+        fetchCity();
+    }, [userCoordinates])
 
 
+
+
+    // showPosition()
 
     // console.log(usercoordinates)
 
@@ -120,7 +147,7 @@ function Navigation() {
                                     <FaLocationArrow className="location-icon-search-section" />
                                     <span>Locate me using GPS</span>
                                 </div>
-                                    {/* <hr className="hr" /> */}
+                                {/* <hr className="hr" /> */}
                             </div>
                             <div>
                                 {
@@ -140,20 +167,20 @@ function Navigation() {
                                                         </div>
                                                         <div className="location-secondary-text">
                                                             {
-                                                                item.structured_formatting.secondary_text && item.structured_formatting.secondary_text.length>30?(
+                                                                item.structured_formatting.secondary_text && item.structured_formatting.secondary_text.length > 30 ? (
                                                                     <>
-                                                                    {
-                                                                        item.structured_formatting.secondary_text.slice(0,30)
-                                                                    }
-                                                                    ...
+                                                                        {
+                                                                            item.structured_formatting.secondary_text.slice(0, 30)
+                                                                        }
+                                                                        ...
                                                                     </>
-                                                                ):(
+                                                                ) : (
                                                                     <>
-                                                                    {item.structured_formatting.secondary_text}
+                                                                        {item.structured_formatting.secondary_text}
                                                                     </>
                                                                 )
                                                             }
-                                                        
+
                                                         </div>
                                                     </div>
                                                 </div>
