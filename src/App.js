@@ -2,11 +2,8 @@ import { useContext, useEffect, useState, } from 'react';
 
 // import { Routes, Route, Link, Router } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
 import './App.css';
-
 import UserContext from './context/userContext';
-
 import HomePage from './pages/homePage';
 import About from './pages/about';
 import PagenotFound from './pages/pagenotfound';
@@ -31,6 +28,7 @@ function App() {
       <Routes>
         <Route path="/" index element={<HomePage />} />
         <Route path="/collection/:collection_id/:collection_type" element={<Collections/>} />
+        {/* <Route path='/resturant/:city' */}
         <Route path="/about" element={<About />} />
         <Route path="*" element={<PagenotFound></PagenotFound>}></Route>
       </Routes>
