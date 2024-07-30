@@ -6,6 +6,7 @@ import '../style/collection.css'
 import Card from "../components/card"
 import BreedCrumber from "../components/breedCrumber"
 import Footer from "../components/footer"
+import { useSelector } from "react-redux"
 import { ShimmerSimpleGallery, ShimmerSectionHeader } from "react-shimmer-effects";
 
 function Collections() {
@@ -14,27 +15,34 @@ function Collections() {
     const [collectionData, setCollectionData] = useState([])
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
-    const url = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.6102763&lng=85.1338404&collection=${collection_id}&tags=layout_CCS_${collection_type}&sortBy=&filters=&type=rcv2&offset=0&page_type=null`;
+    const cityGeoLocation = useSelector((state) => state.location[0])
+    const long = cityGeoLocation.long
+    const lat = cityGeoLocation.lat
+    const url = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${long}&collection=${collection_id}&tags=layout_CCS_${collection_type}&sortBy=&filters=&type=rcv2&offset=0&page_type=null`;
 
     // console.log(collection_id)
     // console.log(collection_type)
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setLoading(true)
-                const response = await fetch(url)
-                const data = await response.json()
-                // console.log(data)
-                setCollectionData(data)
-                setLoading(false)
-            }
-            catch (err) {
-                console.log(err)
-                setError(true)
-            }
+
+    const fetchData = async () => {
+        try {
+            setLoading(true)
+            const response = await fetch(url)
+            const data = await response.json()
+            console.log(data)
+            setCollectionData(data)
+            setLoading(false)
         }
+        catch (err) {
+            console.log(err)
+            setError(true)
+        }
+    }
+    useEffect(() => {
         fetchData()
-    }, [])
+    }, [cityGeoLocation])
+    // useEffect(()=>{
+
+    // },[[],[us]])
     console.log()
     return (
         <div>{
