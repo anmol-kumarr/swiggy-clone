@@ -8,6 +8,7 @@ import UserContext from "../context/userContext";
 import '../style/navigation.css'
 import { useDispatch } from "react-redux";
 import { add } from "../redux/locationSlice"
+import { useSelector } from "react-redux";
 function Navigation() {
 
     const [isVisible, setIsVisible] = useState(false);
@@ -71,8 +72,8 @@ function Navigation() {
     // setting coordinates_______________________________________________________________________________
 
     const [userCoordinates, setUserCoordinates] = useState({
-        long: '',
-        lat: ''
+        long: null,
+        lat: null
     })
     const handlingGeoPostion = () => {
         if (navigator.geolocation) {
@@ -87,28 +88,54 @@ function Navigation() {
             long: position?.coords?.longitude,
             lat: position?.coords?.latitude
         };
-        if(userCoordinates!==coordinates) setUserCoordinates(coordinates)
+        console.log('hello2')
+        if (userCoordinates !== coordinates) setUserCoordinates(coordinates)
 
         sessionStorage.setItem('user-coordinates', JSON.stringify(coordinates))
     }
+
+
     const dispatch = useDispatch()
-    const key = '608e32d016e7ab5423902da22030645b'
+
 
     useEffect(() => {
-        const fetchCity=async()=>{
-            try{
-                const response=await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${userCoordinates.lat}&lon=${userCoordinates.long}&limit=1&appid=${key}`)
-                const city=await response.json()
-                dispatch(add({userCoordinates,city}))
-            }
-            catch(err){
-                console.log(err)
-                alert('Something went wrong in fetch city function')
-            }
+        const localCoordinates = sessionStorage.getItem('user-coordinates')
+        if (localCoordinates) {
+            const coordinates = JSON.parse(localCoordinates)
+            setUserCoordinates(coordinates)
+            console.log('tset')
         }
-        fetchCity();
-    }, [userCoordinates])
+        else {
 
+        }
+    }, [])
+
+
+    const key = '608e32d016e7ab5423902da22030645b'
+    const [cityName, setCityName] = useState([])
+
+    const fetchCity = async () => {
+        try {
+            const response = await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${userCoordinates.lat}&lon=${userCoordinates.long}&limit=1&appid=${key}`)
+            const city = await response.json()
+            console.log(city)
+            setCityName(city)
+        
+            dispatch(add([{ ...userCoordinates }, { city }]))
+        }
+        catch (err) {
+            console.log(err)
+            alert('Something went wrong in fetch city function')
+        }
+    }
+
+    useEffect(() => {
+        if (userCoordinates.lat && userCoordinates.long) fetchCity();
+
+    }, [userCoordinates])
+    useEffect(()=>{
+        handleOutsideClick()
+    },[cityName])
 
 
 
@@ -126,7 +153,19 @@ function Navigation() {
             </div>
             <div className="location" onClick={handleDivClick}>
                 <FaLocationArrow className="color search " />
-                <span className="setup-location">Setup your precise location</span>
+                <span className="setup-location">{
+                    cityName.length>0?(
+                        <>
+                            {cityName[0].name},  {cityName[0].state}
+                        </>
+                    ):(
+                    <>
+                        
+                        Setup your precise location
+                    </>
+                    )
+                    }
+                </span>
                 <FaAngleDown className="color"></FaAngleDown>
 
 
@@ -204,7 +243,7 @@ function Navigation() {
             </div>
 
 
-        </div>
+        </div >
     )
 }
 export default Navigation;
