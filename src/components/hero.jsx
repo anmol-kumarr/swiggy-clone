@@ -7,7 +7,7 @@ function Hero() {
 
                 <div>
                     <div className='heading'>
-                        <h1> Order Food Online in Patna</h1>
+                        <h1> Order Food Online in </h1>
 
                     </div>
                     <div className='curve'>

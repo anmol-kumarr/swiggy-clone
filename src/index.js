@@ -16,8 +16,6 @@ root.render(
   <BrowserRouter>
     <UserContextProvider>
       <Provider store={store}>
-
-
         <App />
       </Provider>
 
