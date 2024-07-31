@@ -1,10 +1,21 @@
 import { MdStars } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
 import '../style/card.css'
+import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 function Card({ arr }) {
     const url = "https://media-assets.swiggy.com/"
+    console.log(arr)
+    const CityName=useSelector((state)=>state.location[1].city[0].name)
+
+    const navigate=useNavigate()
+    const handlerNavigator=()=>{
+        navigate(`/resturant/${CityName}/${arr.info.name}/${arr.info.id}`)
+        // console.log('click')
+    }
+
     return (
-        <div className="cards" key={arr.info.id}>
+        <div onClick={handlerNavigator} className="cards" key={arr.info.id}>
             <div className="images-section" >
                 {
                     // arr.info.cloudinaryImageId===false?(
@@ -12,7 +23,7 @@ function Card({ arr }) {
                     //         <img src={arr.card.card.info.cloudinaryImageId} alt="" />
                     //     </div>
                     // ):(
-                        <img  className="images" src={url+arr.info.cloudinaryImageId}  alt="" />
+                    <img className="images" src={url + arr.info.cloudinaryImageId} alt="" />
                     // )
                 }
             </div>
@@ -28,7 +39,7 @@ function Card({ arr }) {
                         {arr.info.avgRating}
                     </span>
                     <span className="dot-section">
-                    
+
                         <GoDotFill className="dot" />
                         {arr.info.sla.slaString}
                     </span>
