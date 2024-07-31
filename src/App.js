@@ -8,6 +8,7 @@ import HomePage from './pages/homePage';
 import About from './pages/about';
 import PagenotFound from './pages/pagenotfound';
 import Collections from './pages/collection';
+import Resturant from './pages/resturantsPage';
 
 
 
@@ -28,7 +29,7 @@ function App() {
       <Routes>
         <Route path="/" index element={<HomePage />} />
         <Route path="/collection/:collection_id/:collection_type" element={<Collections/>} />
-        {/* <Route path='/resturant/:city' */}
+        <Route path='/resturant/:city/:resturantName/:resturantId' element={<Resturant></Resturant>} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<PagenotFound></PagenotFound>}></Route>
       </Routes>
