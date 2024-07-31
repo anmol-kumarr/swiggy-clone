@@ -7,7 +7,7 @@ import ResturantChains from '../components/resturentChains';
 // import Btn from './components/filter';
 // import { GlobalContext } from './context/globalcontext';
 import FoodDelivery from '../components/fooddelivery';
-import Best from '../components/swiggyBest';
+import Best from '../components/Best';
 import Footer from '../components/footer';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';

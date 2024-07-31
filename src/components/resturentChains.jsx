@@ -6,6 +6,7 @@ import '../style/resturantchain.css'
 import { ShimmerSimpleGallery } from "react-shimmer-effects";
 import { useSelector } from "react-redux";
 // import { ShimmerPostList } from "react-shimmer-effects";
+import { useNavigate } from "react-router";
 
 
 // import { GoDotFill } from "react-icons/go";
@@ -14,13 +15,15 @@ function ResturantChains({ resturantChains, loading }) {
     // const url = "https://media-assets.swiggy.com/"
     // const { resturantChains ,setSlider,slider} = useContext(UserContext)
     const [slider, setSlider] = useState(false)
-    const currentCity=useSelector((state)=>state.location[1].city[0].name)
-    console.log(currentCity)
+    const currentCity = useSelector((state) => state.location[1].city[0].name)
+    // console.log(currentCity)
     // console.log(resturantChains)
     // const [loading, setloading] = useState(true)
     useEffect(() => {
         setSlider(true)
     }, [])
+
+
     return (
         <div className="resturant-section">
             <h2>Top restaurant chains in {currentCity}</h2>

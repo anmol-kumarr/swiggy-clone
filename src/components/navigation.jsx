@@ -8,7 +8,6 @@ import UserContext from "../context/userContext";
 import '../style/navigation.css'
 import { useDispatch } from "react-redux";
 import { add } from "../redux/locationSlice"
-import { useSelector } from "react-redux";
 function Navigation() {
 
     const [isVisible, setIsVisible] = useState(false);
@@ -43,7 +42,7 @@ function Navigation() {
 
 
     const [location, setLocation] = useState('')
-    const [suggestionVisible, setSuggestionVisible] = useState(false)
+    // const [suggestionVisible, setSuggestionVisible] = useState(false)
     const loctionHandler = (e) => {
         const initialInputValue = e.target.value;
         setLocation(initialInputValue)
@@ -94,22 +93,18 @@ function Navigation() {
         sessionStorage.setItem('user-coordinates', JSON.stringify(coordinates))
     }
 
-
     const dispatch = useDispatch()
-
 
     useEffect(() => {
         const localCoordinates = sessionStorage.getItem('user-coordinates')
         if (localCoordinates) {
             const coordinates = JSON.parse(localCoordinates)
             setUserCoordinates(coordinates)
-            console.log('tset')
+            console.log('test')
         }
-        else {
-
-        }
+        // else {
+        // }
     }, [])
-
 
     const key = '608e32d016e7ab5423902da22030645b'
     const [cityName, setCityName] = useState([])
@@ -142,7 +137,6 @@ function Navigation() {
 
     // showPosition()
 
-    // console.log(usercoordinates)
 
 
     return (
