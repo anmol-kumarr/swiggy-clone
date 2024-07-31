@@ -4,7 +4,9 @@ import UserContext from "../context/userContext"
 import { useContext } from "react"
 import '../style/fooddelivery.css'
 import { ShimmerSimpleGallery } from "react-shimmer-effects";
+import { useSelector } from "react-redux"
 function FoodDelivery({ resturantChains, foodDelivery,loading }) {
+    const currentCity=useSelector((state)=>state.location[1].city[0].name)
 
     // const { resturantChains, foodDelivery } = useContext(UserContext)
     // console.log(resturantChains)
@@ -13,7 +15,7 @@ function FoodDelivery({ resturantChains, foodDelivery,loading }) {
     // const loading=true;
     return (
         <div className="delivery-section">
-            <h2 className="food-delivery-heading">Restaurants with online food delivery in Patna</h2>
+            <h2 className="food-delivery-heading">Restaurants with online food delivery in {currentCity}</h2>
             <Btn></Btn>
             <div className="card-section">
 

@@ -118,7 +118,7 @@ function Navigation() {
         try {
             const response = await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${userCoordinates.lat}&lon=${userCoordinates.long}&limit=1&appid=${key}`)
             const city = await response.json()
-            console.log(city)
+            // console.log(city)
             setCityName(city)
         
             dispatch(add([{ ...userCoordinates }, { city }]))
@@ -131,10 +131,11 @@ function Navigation() {
 
     useEffect(() => {
         if (userCoordinates.lat && userCoordinates.long) fetchCity();
-
     }, [userCoordinates])
+
     useEffect(()=>{
-        handleOutsideClick()
+        // handleOutsideClick()
+        setIsVisible(false)
     },[cityName])
 
 

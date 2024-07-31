@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import '../style/bestCard.css'
-function BestBtn(props) {
-    const data = props.data
-    const heading = props.heading
+function BestBtn({data,heading}) {
+    // const best = data.brands
+    // const heading = props.heading
     const [showmore, setShowmore] = useState(false)
 
     // useEffect(() => {
@@ -13,7 +13,7 @@ function BestBtn(props) {
     function showMoreHandler() {
         setShowmore(!showmore)
     }
-    // console.log(data)
+    // console.log(best)
     // console.log(title)
     return (
         <div>

@@ -1,13 +1,15 @@
 import '../style/hero.css'
 import heroImage from '../assets/header.avif'
+import { useSelector } from 'react-redux'
 function Hero() {
+    const currentCity=useSelector((state)=>state.location[1].city[0].name)
     return (
         <div className='hero-section'>
             <div className='hero'>
 
                 <div>
                     <div className='heading'>
-                        <h1> Order Food Online in </h1>
+                        <h1> Order Food Online in {currentCity}</h1>
 
                     </div>
                     <div className='curve'>

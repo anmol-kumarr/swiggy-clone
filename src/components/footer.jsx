@@ -2,10 +2,14 @@ import { SiSwiggy } from "react-icons/si";
 import UserContext from "../context/userContext";
 import { useContext } from "react";
 import '../style/footer.css'
+import playStore from '../assets/play_store.avif'
+import iosStore from '../assets/app_store.avif'
 function Footer() {
-    const { swiggyDownload } = useContext(UserContext)
-    const { androidAppImage, iosAppImage } = swiggyDownload
-    const url = "https://media-assets.swiggy.com/"
+    // const { swiggyDownload } = useContext(UserContext)
+    // console.log(footer)
+    // const androidAppImage=footer.androidAppImage
+    // const iosAppImage=footer.iosAppImage
+    // const url = "https://media-assets.swiggy.com/"
     return (
         <div className="footer">
             <div className="download-swiggy">
@@ -16,10 +20,10 @@ function Footer() {
                     </div>
                     <div className="download-image">
                         <div>
-                            <img src={url + androidAppImage} alt="" height={80} />
+                            <img src={playStore} alt="" height={80} />
                         </div>
                         <div>
-                            <img src={url + iosAppImage} alt="" height={80} />
+                            <img src={iosStore} alt="" height={80} />
                         </div>
                     </div>
                 </div>
