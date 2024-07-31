@@ -109,7 +109,7 @@ function UserContextProvider({ children }) {
         loading,
         setLoading,
         fetchData,
-        fetchData2,
+        // fetchData2,
         slider,
         setSlider,
         foodDelivery,

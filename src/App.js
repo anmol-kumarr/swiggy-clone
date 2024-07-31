@@ -15,8 +15,8 @@ function App() {
   const { fetchData, fetchData2 } = useContext(UserContext)
 
   useEffect(() => {
-    fetchData()
-    fetchData2()
+    // fetchData()
+    // fetchData2()
   }, [])
 
 
