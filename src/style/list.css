@@ -1,0 +1,55 @@
+.veg{
+    color: rgb(0, 159, 0);
+    border-radius:100% ;
+}
+.non-veg{
+    color: red;
+}
+.menu-list-wrapper{
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    justify-content: space-between;
+}
+.menu-list-text{
+    font-family: 'Gilroy', sans-serif;
+    color: rgba(2, 6, 12, 0.75);
+}
+.menu-sub-title{
+    font-size: 17px;
+    font-weight: 700;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-item-heading{
+    
+    font-weight: 700;
+}
+.menu-price{
+    margin: 4px;
+    font-weight: 600;
+    color: black;
+    font-size:15px;
+}
+.menu-rating{
+    margin: 4px;
+    font-weight: 700;
+    font-size: 13px;
+}
+.menu-description{
+    font-weight: 500;
+    color: rgba(2, 6, 12, 0.6);;
+}
+.menu-readmore{
+    font-weight: 700;
+    color: rgba(2, 6, 12, 0.75);
+    cursor: pointer;
+}
+.menu-img{
+    height: 144px;
+    margin: 10px;
+    width: 156px;
+    border-radius: 15px;
+}
