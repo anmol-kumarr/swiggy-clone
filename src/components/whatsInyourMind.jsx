@@ -58,7 +58,7 @@ function WhatsOnYour({ loading,WhatsOnYourMindData }) {
                         ) : (
                             <>
                                 {
-                                    WhatsOnYourMindData.map((arr) =>
+                                    Array.isArray(WhatsOnYourMindData)&&WhatsOnYourMindData.map((arr) =>
                                     (
                                         <div onClick={()=>navigateHandler(arr)} className='card-img' key={arr.id}>
                                             <img src={url + arr.imageId} alt="" height={150} />
