@@ -3,7 +3,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 .card-section{
     display: flex;
@@ -11,6 +11,8 @@
     justify-content: center;
     gap: 20px;
     margin-bottom: 20px;
+    align-items: center;
+    margin-top: 20px;
 }
 .card-flex{
     display: flex;

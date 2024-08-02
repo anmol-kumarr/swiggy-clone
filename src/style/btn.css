@@ -9,18 +9,19 @@
 .btn-section {
     display: flex;
     max-width: 1000px;
-    margin: 20px auto;
     justify-content: center;
     /* gap: 20px; */
     position: sticky;
     top: 0;
     background-color: #fff;
     padding: 10px;
-
+    
     z-index: 10;
 }
 
 .btn-cont {
+    margin: 0px auto;
+    max-width: 1000px;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -7,6 +7,10 @@
     font-family: 'Gilroy', sans-serif;
 }
 
+.resturant-wrapper {
+    position: relative;
+}
+
 .resturants-detail {
     box-shadow: 0px 0px 5px rgb(233, 233, 233);
     background-color: #ffffff;
@@ -112,9 +116,30 @@
 }
 
 .Collapsible__contentOuter {
-    transition:all 10000ms linear;
+    transition: all 10000ms linear;
 
 }
-.Collapsible{
+
+.Collapsible {
     padding: 10px;
+}
+
+.modal {
+    /* pointer-events: initial; */
+    display: block;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: #f0f0f09e;
+}
+
+.modal-visible {
+    display: none;
+}
+
+.modal-card{
+    
 }
