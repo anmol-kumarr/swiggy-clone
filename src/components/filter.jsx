@@ -9,7 +9,7 @@ function Btn() {
     return (
 
 
-        <div className="btn-section">
+        // <div className="btn-section">
             <Scrollbar>
 
                 {
@@ -29,7 +29,7 @@ function Btn() {
                     ))
                 }
             </Scrollbar>
-        </div>
+        // </div>
 
     )
 }
