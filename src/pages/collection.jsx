@@ -49,7 +49,7 @@ function Collections() {
             error === true ? (
                 <h1>Something Went Wrong</h1>
             ) : (<>
-                <Navigation></Navigation>
+                {/* <Navigation></Navigation> */}
                 <div className="collection-wrapper">
 
                     <div className="collection-cont">
@@ -104,7 +104,7 @@ function Collections() {
             </>
             )
         }
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
         </div>
     )
 }

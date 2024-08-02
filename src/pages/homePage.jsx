@@ -31,6 +31,7 @@ function HomePage() {
     const lat = cityGeoLocation.lat
 
     const url = `https://foodfire.onrender.com/api/restaurants?lat=${lat}&lng=${long}&page_type=DESKTOP_WEB_LISTING`
+    // const url=`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${long}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
 
 
     useEffect(() => {
@@ -96,9 +97,9 @@ function HomePage() {
     return (
         <div>
             {
-                fail === false ? (<div>
+                fail === false ? (<div  className='home-page'>
 
-                    <Navigation></Navigation>
+                    {/* <Navigation></Navigation> */}
                     <Hero></Hero>
 
 
@@ -116,7 +117,7 @@ function HomePage() {
 
 
                     <Best bestCity={bestCity} bestItem={bestItem}></Best>
-                    <Footer footer={footer}></Footer>
+                    {/* <Footer footer={footer}></Footer> */}
                 </div>
                 ) : (
                     <div>
