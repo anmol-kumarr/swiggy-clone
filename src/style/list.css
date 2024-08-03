@@ -53,3 +53,22 @@
     width: 156px;
     border-radius: 15px;
 }
+.menu-item-list-img{
+    position: relative;
+}
+.add-to-cart-btn{
+    border-radius: 10px;
+    font-family: 'Gilroy', sans-serif;
+    position: absolute;
+    bottom:-7px;
+    right: 40px;
+    width: 100px;
+    background-color: #fff;
+    color: rgb(27, 166, 114);
+    padding: 10px 20px 10px 20px;
+    border:0.4px solid rgb(228, 228, 228);
+    font-size: 15px;
+    outline: none;
+    font-weight: 900;
+
+}

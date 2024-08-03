@@ -3,12 +3,23 @@ import { FaStar } from "react-icons/fa6";
 import { PiShootingStarLight } from "react-icons/pi";
 import '../style/list.css'
 import { useState } from "react";
-const List = ({ item,index,length }) => {
+import Counter from "./counter";
+const List = ({ item, index, length }) => {
     // console.log(item)
     const [description, setDescription] = useState(false)
     const url = 'https://media-assets.swiggy.com/'
     const readMore = () => {
         setDescription(true)
+    }
+
+    const [quantity, setQuantity] = useState(0)
+    const increaseQuantity = () => {
+        setQuantity(quantity + 1 >= 5 ? (5) : (quantity + 1))
+        console.log(quantity)
+    }
+    const decreaseQuantity = () => {
+        setQuantity(quantity - 1 <= 5 ? (0) : (quantity - 1))
+        console.log(quantity)
     }
     return (<>
         <div className="menu-list-wrapper">
@@ -20,7 +31,7 @@ const List = ({ item,index,length }) => {
                     <h3 className="menu-item-heading">
                         {item?.card?.info?.name}
                     </h3>
-                    <p className="menu-price">₹   
+                    <p className="menu-price">₹
                         {
                             item?.card?.info?.price / 100
                         }
@@ -59,16 +70,26 @@ const List = ({ item,index,length }) => {
 
             </div>
             <div>
-                <div>
-                    <img className="menu-img" src={url + item?.card?.info?.imageId} alt="" height={30}/>
+                <div className="menu-item-list-img">
+                    <img className="menu-img" src={url + item?.card?.info?.imageId} alt="" height={30} />
+
+                    {
+                        quantity === 0 ? (
+                            <>
+                                <button onClick={increaseQuantity} className="add-to-cart-btn">ADD</button>
+                            </>
+                        ) : (
+
+                            <Counter quantity={quantity} increaseQuantity={() => increaseQuantity(item?.card?.info?.id)} decreaseQuantity={() => decreaseQuantity(item?.card?.info?.id)}></Counter>
+                        )
+                    }
                 </div>
             </div>
-        </div>
-    {
-        length-1>index && <hr />
-    }
-        {/* <hr /> */}
-    
+        </div >
+        {
+            length - 1 > index && <hr />
+        }
+
     </>
     )
 }

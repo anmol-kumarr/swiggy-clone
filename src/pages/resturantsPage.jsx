@@ -45,8 +45,10 @@ const Resturant = () => {
     }, [])
     const [modalVisible, setModalVisible] = useState(false)
     const modalHandler = () => {
-        setModalVisible(true)
+        setModalVisible(false)
+        // document.body.style.overflow = 'hidden';
     }
+    // itemList.map((categories)=>console.log(categories))
 
     return (
         <div className="resturantpage-wrapper">
@@ -133,15 +135,15 @@ const Resturant = () => {
                         ) : (
 
 
-                            itemList.map((categories) => (
+                            itemList.map((categories,index) => (
                                 <>
                                     {
                                         Array.isArray(categories?.card?.card?.itemCards) && categories?.card?.card?.itemCards.length > 0 ? (
 
-                                            <Collapsible trigger={<div className="collaps-title">{categories.card.card.title} ({categories.card.card.itemCards.length}) <MdKeyboardArrowDown></MdKeyboardArrowDown> </div>}>
+                                            <Collapsible key={categories.card.card.title} trigger={<div className="collaps-title">{categories.card.card.title} ({categories.card.card.itemCards.length}) <MdKeyboardArrowDown></MdKeyboardArrowDown> </div>}>
                                                 {
                                                     categories?.card?.card?.itemCards.map((item, index) => (
-                                                        <List length={categories?.card?.card?.itemCards.length} index={index} item={item}></List>
+                                                        <List key={item.card.info.id} length={categories?.card?.card?.itemCards.length} index={index} item={item}></List>
                                                     ))
                                                 }
                                             </Collapsible>
@@ -155,10 +157,10 @@ const Resturant = () => {
                                                     {
                                                         categories?.card?.card?.categories?.map((item, index) => (
                                                             <>
-                                                                <Collapsible trigger={<div className="menu-sub-title">{item.title} ({item?.itemCards?.length})  <MdKeyboardArrowDown></MdKeyboardArrowDown></div>}>
+                                                                <Collapsible key={item.title} trigger={<div className="menu-sub-title">{item.title} ({item?.itemCards?.length})  <MdKeyboardArrowDown></MdKeyboardArrowDown></div>}>
                                                                     {
                                                                         item?.itemCards?.map((data, index) => (
-                                                                            <List length={item?.itemCards.length} index={index} item={data}></List>
+                                                                            <List key={data.card.info.id} length={item?.itemCards.length} index={index} item={data}></List>
                                                                         ))
                                                                     }
                                                                 </Collapsible>
@@ -189,7 +191,7 @@ const Resturant = () => {
             <div className={modalVisible ? ('modal') : ('modal-visible')}>
                 <div className="modal-card">
                         <p>{}</p>
-                        <h3></h3>
+                        <h3>hello</h3>
                         <hr />
                         <p>
                             <span></span>

@@ -1,7 +1,7 @@
 import Card from "./card"
 import Btn from "./filter"
 import UserContext from "../context/userContext"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import '../style/fooddelivery.css'
 import { ShimmerSimpleGallery } from "react-shimmer-effects";
 import { useSelector } from "react-redux"
@@ -10,13 +10,15 @@ function FoodDelivery({ resturantChains, foodDelivery, loading }) {
 
     // const { resturantChains, foodDelivery } = useContext(UserContext)
     // console.log(resturantChains)
-    console.log(resturantChains)
-    // console.log(foodDelivery)
+    // console.log(resturantChains)
+    console.log(foodDelivery)
     // const loading=true;
+
+    const[filterData,setFilterData]=useState()
     return (
         <div className="delivery-section">
             <h2 className="food-delivery-heading">Restaurants with online food delivery in {currentCity}</h2>
-            <Btn></Btn>
+            <Btn ></Btn>
             <div className="card-section">
 
                 {
@@ -26,11 +28,11 @@ function FoodDelivery({ resturantChains, foodDelivery, loading }) {
                         </>
                     ) : (
                         <>
-                            {/* {
+                            {
                                 Array.isArray(foodDelivery ) && foodDelivery.length>0 && foodDelivery.map((arr) => (
                                     <Card key={arr.info.id} arr={arr}></Card>
                                 ))
-                            } */}
+                            }
                             {
                                 resturantChains.map((arr) => (
                                     <Card key={arr.info.id} arr={arr}></Card>
