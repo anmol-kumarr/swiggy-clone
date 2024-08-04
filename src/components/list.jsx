@@ -4,23 +4,75 @@ import { PiShootingStarLight } from "react-icons/pi";
 import '../style/list.css'
 import { useState } from "react";
 import Counter from "./counter";
+import { addToCart, removeFromCart, updateCart } from '../redux/cartSlice.js'
+import { useDispatch } from "react-redux";
 const List = ({ item, index, length }) => {
+
+
+    // setQuantity(quantity + 1 >= 5 ? (5) : (quantity + 1))
+    // setQuantity(quantity + 1 >= 5 ? (5) : (quantity + 1))
+    // setQuantity(prevQuantity => {
+    //     const newQuantity = prevQuantity + 1>5?(5):(prevQuantity+1);
+    //     dispatch(updateCart({ quantity: newQuantity }));
+    //     return newQuantity}
+    // )
+    // console.log(itemId)
     // console.log(item)
     const [description, setDescription] = useState(false)
+
+
     const url = 'https://media-assets.swiggy.com/'
     const readMore = () => {
         setDescription(true)
     }
 
+
+    const dispatch = useDispatch()
+    let itemId =Number( item?.card?.info?.id)
+
     const [quantity, setQuantity] = useState(0)
+    // let quantity=0
+    // const serializedItem = JSON.stringify(item);
+
+    const addToCartBtn = () => {
+        // quantity=quantity+1
+        setQuantity(prevQuantity => {
+            const newQuantity = prevQuantity + 1;
+
+            dispatch(addToCart({itemId,item,quantity:newQuantity}));
+            return newQuantity
+        }
+        )
+        // setQuantity(quantity+1)
+    }
     const increaseQuantity = () => {
-        setQuantity(quantity + 1 >= 5 ? (5) : (quantity + 1))
-        console.log(quantity)
+        // setQuantity(quantity + 1 > 5 ? (5) : (quantity + 1))
+        // console.log(quantity)
+        // const itemId = id
+        setQuantity(prevQuantity => {
+            const newQuantity = prevQuantity + 1;
+            // dispatch(addToCart({itemId}))
+            // dispatch(updateCart({itemId,quantity:newQuantity}))
+            dispatch(addToCart({itemId,item,quantity:newQuantity}));
+            // dispatch(updateCart(({itemId})))
+            // console.log(itemId,newQuantity)
+            return newQuantity
+        })
+        
     }
-    const decreaseQuantity = () => {
-        setQuantity(quantity - 1 <= 5 ? (0) : (quantity - 1))
-        console.log(quantity)
+
+
+    const decreaseQuantity = (id) => {
+        // setQuantity(quantity - 1 === 0 ? (0) : (quantity - 1))
+        // console.log(quantity)
+
     }
+
+    // const decreaseQuantity = () => {
+    //     setQuantity(quantity - 1 <= 5 ? (0) : (quantity - 1))
+    //     console.log(quantity)
+    // }
+
     return (<>
         <div className="menu-list-wrapper">
             <div className="menu-list-text">
@@ -76,11 +128,11 @@ const List = ({ item, index, length }) => {
                     {
                         quantity === 0 ? (
                             <>
-                                <button onClick={increaseQuantity} className="add-to-cart-btn">ADD</button>
+                                <button onClick={addToCartBtn} className="add-to-cart-btn">ADD</button>
                             </>
                         ) : (
 
-                            <Counter quantity={quantity} increaseQuantity={() => increaseQuantity(item?.card?.info?.id)} decreaseQuantity={() => decreaseQuantity(item?.card?.info?.id)}></Counter>
+                            <Counter quantity={quantity} increaseQuantity={() => increaseQuantity({ id: item?.card?.info?.id })} decreaseQuantity={() => decreaseQuantity({ id: item?.card?.info?.id })}></Counter>
                         )
                     }
                 </div>
