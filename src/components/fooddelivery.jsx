@@ -1,11 +1,14 @@
 import Card from "./card"
-import Btn from "./filter"
+// import Btn from "./filter"
 import UserContext from "../context/userContext"
 import { useContext, useEffect, useState } from "react"
 import '../style/fooddelivery.css'
 import { ShimmerSimpleGallery } from "react-shimmer-effects";
 import { useSelector } from "react-redux"
-function FoodDelivery({ resturantChains,foodDelivery,loading }) {
+import filter from "../data/filter"
+import '../style/btn.css'
+import Scrollbar from "./scrollbar"
+function FoodDelivery({ resturantChains, foodDelivery, loading }) {
     const currentCity = useSelector((state) => state.location[1].city[0].name)
 
     // const { resturantChains, foodDelivery } = useContext(UserContext)
@@ -15,13 +18,42 @@ function FoodDelivery({ resturantChains,foodDelivery,loading }) {
     // const loading=true;
     // const[data,setData]=useState([])
     // Array.isArray(resturantChains)&& Array.isArray(foodDelivery)&&setData(foodDelivery,resturantChains)
+    const data = []
+    const [filterName, setFilterName] = useState([])
+    useEffect(() => {
+        data.push(foodDelivery)
+        data.push(resturantChains)
+    }, [])
 
+    const filterHandler=(id)=>{
     
-    
+    }
+
     return (
         <div className="delivery-section">
             <h2 className="food-delivery-heading">Restaurants with online food delivery in {currentCity}</h2>
-            <Btn  ></Btn>
+            <>
+                <Scrollbar>
+
+                    {
+                        filter.map((arr) => (
+                            <div className="btn-cont" key={arr.id}>
+
+                                <button onClick={()=>filterHandler(arr.id)} className="btn">{arr.title}
+
+                                    <span>{
+                                        'icon' in arr ? (<span>{arr.icon}</span>) : ('')
+                                    } </span>
+                                </button>
+                                {/* <span>{
+            'icon' in arr ? (<span>{arr.icon}</span>) : ('')
+            } </span> */}
+                            </div>
+                        ))
+                    }
+                </Scrollbar>
+            </>
+            {/* <Btn setFilterName={setFilterName} ></Btn> */}
             <div className="card-section">
 
                 {
@@ -32,7 +64,7 @@ function FoodDelivery({ resturantChains,foodDelivery,loading }) {
                     ) : (
                         <>
                             {
-                                Array.isArray(foodDelivery ) && foodDelivery.length>0 && foodDelivery.map((arr) => (
+                                Array.isArray(foodDelivery) && foodDelivery.length > 0 && foodDelivery.map((arr) => (
                                     <Card key={arr.info.id} arr={arr}></Card>
                                 ))
                             }
@@ -42,7 +74,7 @@ function FoodDelivery({ resturantChains,foodDelivery,loading }) {
                                 ))
                             }
 
-                        
+
                         </>
                     )
                 }

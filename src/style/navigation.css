@@ -70,6 +70,7 @@
     align-items: center;
     padding: 10px;
     border-radius: 5px;
+    position: relative;
 }
 
 .search {
@@ -183,4 +184,16 @@ hr.hr{
     font-family: 'Gilroy', sans-serif;
     font-weight: 600;
 
+}
+.search-bar-suggestion{
+    display: block;
+    position: absolute;
+    height: 10px;
+    width:100%;
+    background-color: #9b3d3d;
+    bottom:0px;
+    left: 0px;
+}
+.hide-searchbar{
+    display: none;
 }

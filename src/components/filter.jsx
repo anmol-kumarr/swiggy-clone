@@ -3,9 +3,9 @@ import '../style/btn.css'
 import Scrollbar from "./scrollbar"
 import { useContext } from "react";
 import UserContext from "../context/userContext";
-function Btn({setFilterData}) {
+function Btn({setFilterName}) {
     const setFilter=(filter)=>{
-        setFilterData(filter)
+        setFilterName(filter)
     }
 
     return (
