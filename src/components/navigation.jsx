@@ -57,6 +57,7 @@ function Navigation() {
         try {
             const response = await fetch(locationUrl)
             const locationOutput = await response.json()
+            
             setsuggestedLocation(locationOutput)
         }
         catch (err) {
@@ -115,7 +116,7 @@ function Navigation() {
             const city = await response.json()
             // console.log(city)
             setCityName(city)
-        
+
             dispatch(add([{ ...userCoordinates }, { city }]))
         }
         catch (err) {
@@ -128,14 +129,50 @@ function Navigation() {
         if (userCoordinates.lat && userCoordinates.long) fetchCity();
     }, [userCoordinates])
 
-    useEffect(()=>{
+    useEffect(() => {
         // handleOutsideClick()
         setIsVisible(false)
-    },[cityName])
+    }, [cityName])
+
+    const[manualCity,setManualCity]=useState('')
+    const handleLocationCity=(id)=>{
+        setManualCity(id)
+    }
+    useEffect(()=>{
+        const fetchData=async()=>{
+            const response=await fetch(`https://www.swiggy.com/dapi/misc/address-recommend?place_id=${manualCity}`)
+            const data=await response.json()
+            console.log(data)
+        }
+        fetchData()
+    },[manualCity])
+
 
 
 
     // showPosition()
+    const [searchBar, setSearchBar] = useState('')
+    const [serachBarData, setSearchBarData] = useState([])
+    const searchBarHandler = (e) => {
+        setSearchBar(e.target.value)
+    }
+
+    useEffect(() => {
+        console.log(searchBar)
+        const fetchData = async () => {
+            const data = await fetch(`https://www.swiggy.com/mapi/restaurants/search/suggest?lat=12.960059122809971&lng=77.57337538383284&str=${searchBar}`)
+            const response = await data.json()
+            setSearchBarData(response)
+            console.log(response)
+            
+        }
+        searchBar.length > 0 && fetchData()
+    }, [searchBar])
+
+
+
+
+
 
 
 
@@ -149,17 +186,17 @@ function Navigation() {
             <div className="location" onClick={handleDivClick}>
                 <FaLocationArrow className="color search " />
                 <span className="setup-location">{
-                    cityName.length>0?(
+                    cityName.length > 0 ? (
                         <>
                             {cityName[0].name},  {cityName[0].state}
                         </>
-                    ):(
-                    <>
-                        
-                        Setup your precise location
-                    </>
+                    ) : (
+                        <>
+
+                            Setup your precise location
+                        </>
                     )
-                    }
+                }
                 </span>
                 <FaAngleDown className="color"></FaAngleDown>
 
@@ -187,7 +224,7 @@ function Navigation() {
                                 {
                                     Array.isArray(locationList) && (
                                         locationList.map((item) => (
-                                            <div className="suggested-location-section-cont">
+                                            <div onClick={()=>handleLocationCity(item.place_id)} className="suggested-location-section-cont">
                                                 <hr className="hr" />
                                                 <div className="suggested-location">
                                                     <div>
@@ -230,8 +267,9 @@ function Navigation() {
                 </div>
             </div>
             <div className="input">
-                <input type="text" className="input-field" placeholder="Search for Dishes and Resturants" />
+                <input value={searchBar} onChange={searchBarHandler} type="text" className="input-field" placeholder="Search for Dishes and Resturants" />
                 <span><CiSearch className="search"></CiSearch></span>
+                <div id="searchbar" className={searchBar.length === 0 ? "hide-searchbar" : 'search-bar-suggestion'}></div>
             </div>
             <div>
                 <IoPersonCircleSharp className="user"></IoPersonCircleSharp>
