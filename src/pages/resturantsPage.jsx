@@ -140,7 +140,7 @@ const Resturant = () => {
                                     {
                                         Array.isArray(categories?.card?.card?.itemCards) && categories?.card?.card?.itemCards.length > 0 ? (
 
-                                            <Collapsible key={categories.card.card.title} trigger={<div className="collaps-title">{categories.card.card.title} ({categories.card.card.itemCards.length}) <MdKeyboardArrowDown></MdKeyboardArrowDown> </div>}>
+                                            <Collapsible open={index===0&&true} key={categories.card.card.title} trigger={<div className="collaps-title">{categories.card.card.title} ({categories.card.card.itemCards.length}) <MdKeyboardArrowDown></MdKeyboardArrowDown> </div>}>
                                                 {
                                                     categories?.card?.card?.itemCards.map((item, index) => (
                                                         <List key={item.card.info.id} length={categories?.card?.card?.itemCards.length} index={index} item={item}></List>

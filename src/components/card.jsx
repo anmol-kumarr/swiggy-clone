@@ -5,17 +5,18 @@ import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 function Card({ arr }) {
     const url = "https://media-assets.swiggy.com/"
-    console.log(arr)
-    const CityName=useSelector((state)=>state.location[1].city[0].name)
+    // console.log(arr)
+    const CityName = useSelector((state) => state.location[1].city[0].name)
 
-    const navigate=useNavigate()
-    const handlerNavigator=()=>{
+    const navigate = useNavigate()
+    const handlerNavigator = () => {
         navigate(`/resturant/${CityName}/${arr.info.name}/${arr.info.id}`)
         // console.log('click')
     }
 
     return (
         <div onClick={handlerNavigator} className="cards" key={arr.info.id}>
+            
             <div className="images-section" >
                 {
                     // arr.info.cloudinaryImageId===false?(
@@ -60,7 +61,10 @@ function Card({ arr }) {
                     {arr.info.areaName}
                 </p>
             </div>
+            
+        
         </div>
+
     )
 }
 export default Card
