@@ -9,7 +9,7 @@ import '../style/navigation.css'
 import { useDispatch } from "react-redux";
 import { add } from "../redux/locationSlice"
 function Navigation() {
-
+    const url = 'https://media-assets.swiggy.com/'
     const [isVisible, setIsVisible] = useState(false);
     const divRef = useRef(null);
     const { suggestedLocation, setsuggestedLocation } = useContext(UserContext)
@@ -24,8 +24,10 @@ function Navigation() {
     };
 
     const handleOutsideClick = (event) => {
+        // console.log(divRef)
         if (divRef.current && !divRef.current.contains(event.target)) {
             setIsVisible(false);
+            // console.log(event.target)
         }
     };
 
@@ -57,7 +59,7 @@ function Navigation() {
         try {
             const response = await fetch(locationUrl)
             const locationOutput = await response.json()
-            
+
             setsuggestedLocation(locationOutput)
         }
         catch (err) {
@@ -134,37 +136,54 @@ function Navigation() {
         setIsVisible(false)
     }, [cityName])
 
-    const[manualCity,setManualCity]=useState('')
-    const handleLocationCity=(id)=>{
+    const [manualCity, setManualCity] = useState('')
+    const handleLocationCity = (id) => {
         setManualCity(id)
     }
-    useEffect(()=>{
-        const fetchData=async()=>{
-            const response=await fetch(`https://www.swiggy.com/dapi/misc/address-recommend?place_id=${manualCity}`)
-            const data=await response.json()
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch(`https://www.swiggy.com/dapi/misc/address-recommend?place_id=${manualCity}`)
+            const data = await response.json()
             console.log(data)
         }
         fetchData()
-    },[manualCity])
+    }, [manualCity])
 
 
 
 
     // showPosition()
     const [searchBar, setSearchBar] = useState('')
-    const [serachBarData, setSearchBarData] = useState([])
+    const [searchBarData, setSearchBarData] = useState([])
+    const [visibleSearchBar, setVisibleSearchBar] = useState(false)
+    const searchBarRef = useRef(null)
     const searchBarHandler = (e) => {
         setSearchBar(e.target.value)
+        setVisibleSearchBar(true)
     }
+    const handleOutsideSearchClick = (event) => {
+        // console.log(divRef)
+        if (searchBarRef.current && !searchBarRef.current.contains(event.target)) {
+            setVisibleSearchBar(false);
+            // console.log(event.target)
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleOutsideSearchClick, true);
+        return () => {
+            document.removeEventListener('click', handleOutsideSearchClick, true);
+        };
+    }, []);
 
     useEffect(() => {
         console.log(searchBar)
         const fetchData = async () => {
             const data = await fetch(`https://www.swiggy.com/mapi/restaurants/search/suggest?lat=12.960059122809971&lng=77.57337538383284&str=${searchBar}`)
             const response = await data.json()
-            setSearchBarData(response)
+            setSearchBarData(response?.data?.suggestions)
             console.log(response)
-            
+
         }
         searchBar.length > 0 && fetchData()
     }, [searchBar])
@@ -224,7 +243,7 @@ function Navigation() {
                                 {
                                     Array.isArray(locationList) && (
                                         locationList.map((item) => (
-                                            <div onClick={()=>handleLocationCity(item.place_id)} className="suggested-location-section-cont">
+                                            <div onClick={() => handleLocationCity(item.place_id)} className="suggested-location-section-cont">
                                                 <hr className="hr" />
                                                 <div className="suggested-location">
                                                     <div>
@@ -269,7 +288,31 @@ function Navigation() {
             <div className="input">
                 <input value={searchBar} onChange={searchBarHandler} type="text" className="input-field" placeholder="Search for Dishes and Resturants" />
                 <span><CiSearch className="search"></CiSearch></span>
-                <div id="searchbar" className={searchBar.length === 0 ? "hide-searchbar" : 'search-bar-suggestion'}></div>
+
+
+                <div ref={searchBarRef} id="searchbar" className={visibleSearchBar === true ? 'search-bar-suggestion' : 'hide-searchbar'}>
+                    {
+                        Array.isArray(searchBarData) && searchBarData.length > 0 ? searchBarData.map((item, index) => (
+                            <>
+                                <div className="single-suggestion">
+
+                                    <img className="suggestion-img" src={url + item.cloudinaryId} alt="" height={62} width={62} />
+
+                                    <div>
+                                        <p className="suggestion-heading">{item.text}</p>
+                                        <p className="suggestion-text">{item.type}</p>
+                                    </div>
+                                </div>
+                                {
+                                    searchBarData.length - 1 > index && <hr className="hr"></hr>
+                                }
+                            </>
+                        )) : <>
+                            <h3>Error</h3>
+                        </>
+                    }
+
+                </div>
             </div>
             <div>
                 <IoPersonCircleSharp className="user"></IoPersonCircleSharp>
