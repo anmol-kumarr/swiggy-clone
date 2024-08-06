@@ -140,7 +140,7 @@ const Resturant = () => {
                                     {
                                         Array.isArray(categories?.card?.card?.itemCards) && categories?.card?.card?.itemCards.length > 0 ? (
 
-                                            <Collapsible open={index===0&&true} key={categories.card.card.title} trigger={<div className="collaps-title">{categories.card.card.title} ({categories.card.card.itemCards.length}) <MdKeyboardArrowDown></MdKeyboardArrowDown> </div>}>
+                                            <Collapsible transitionCloseTime={200} open={index===0&&true} key={categories.card.card.title} trigger={<div className="collaps-title">{categories.card.card.title} ({categories.card.card.itemCards.length}) <MdKeyboardArrowDown></MdKeyboardArrowDown> </div>}>
                                                 {
                                                     categories?.card?.card?.itemCards.map((item, index) => (
                                                         <List key={item.card.info.id} length={categories?.card?.card?.itemCards.length} index={index} item={item}></List>
@@ -157,7 +157,7 @@ const Resturant = () => {
                                                     {
                                                         categories?.card?.card?.categories?.map((item, index) => (
                                                             <>
-                                                                <Collapsible key={item.title} trigger={<div className="menu-sub-title">{item.title} ({item?.itemCards?.length})  <MdKeyboardArrowDown></MdKeyboardArrowDown></div>}>
+                                                                <Collapsible transitionCloseTime={200} key={item.title} trigger={<div className="menu-sub-title">{item.title} ({item?.itemCards?.length})  <MdKeyboardArrowDown></MdKeyboardArrowDown></div>}>
                                                                     {
                                                                         item?.itemCards?.map((data, index) => (
                                                                             <List key={data.card.info.id} length={item?.itemCards.length} index={index} item={data}></List>

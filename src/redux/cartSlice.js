@@ -1,21 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { SlActionRedo } from "react-icons/sl";
-
+const initialState = [];
 const CartSlice = createSlice({
     name: 'cart',
-    initialState: [],
+    initialState:{
+        cart:[]
+    },
     reducers: {
         addToCart: (state, action) => {
 
-            state.push(action.payload)
+            state.cart.push(action.payload)
         },
 
-        updateCart: (state, action) => {
-            console.log("id=", action.payload.itemId, "newQuantity=", action.payload.quantity);
+        // updateCart: (state, action) => {
+        //     console.log("id=", action.payload.itemId, "newQuantity=", action.payload.quantity);
 
-            const findIndex = state.findIndex(item => item.id === action.payload.itemId);
-            state[findIndex].quantity = action.payload.quantity;
-        
+        //     const findIndex = state.findIndex(item => item.id === action.payload.itemId);
+        //     state[findIndex].quantity = action.payload.quantity;
+
+        // },
+
+        updateCart: (state, action) => {
+            state.cart=state.cart.map((item)=>
+                item.id===action.payload.id?{...item,quantity:item.quantity+1}:item
+            )
         },
 
         removeFromCart: (state, action) => {
