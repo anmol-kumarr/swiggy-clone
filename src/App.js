@@ -11,6 +11,7 @@ import Collections from './pages/collection';
 import Resturant from './pages/resturantsPage';
 import Navigation from './components/navigation';
 import Footer from './components/footer';
+import Auth from './pages/auth';
 
 
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="resturant/:city/:resturantName/:resturantId" element={<Resturant />} />
           <Route path="about" element={<About />} />
           <Route path="*" element={<PagenotFound />} />
+          <Route path="/auth" element={<Auth/>} />
         </Route>
       </Routes>
     
