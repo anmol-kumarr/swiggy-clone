@@ -24,9 +24,11 @@ const Resturant = () => {
     const [loading, setLoading] = useState(false)
     useEffect(() => {
         const fetchResturantData = async () => {
-            setLoading(true)
-            const response = await fetch(`https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${long}&restaurantId=${resturantId}&submitAction=ENTER`)
-            const data = await response.json()
+            try{
+
+                setLoading(true)
+                const response = await fetch(`https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${long}&restaurantId=${resturantId}&submitAction=ENTER`)
+                const data = await response.json()
             // console.log(data)
             setResturantData(data.data.cards[2].card.card)
             // slicedData.slice(0)
@@ -36,8 +38,12 @@ const Resturant = () => {
             // console.log(data?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
             setItemList(arr.slice(1, arr.length - 2))
             setLoading(false)
-
-
+        }
+        catch(err){
+            console.log('error in resturants page',err)
+        }
+            
+            
 
         }
         fetchResturantData()

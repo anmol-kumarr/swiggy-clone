@@ -53,8 +53,8 @@ const List = ({ item, index, length }) => {
             const newQuantity = prevQuantity + 1;
             // dispatch(addToCart({itemId}))
             // dispatch(updateCart({itemId,quantity:newQuantity}))
-            dispatch(updateCart({type:'update',id:itemId,item,quantity:newQuantity}));
-            // dispatch(updateCart(({itemId})))
+            // dispatch(updateCart({id:itemId,quantity:newQuantity}));
+            dispatch(updateCart({id:itemId,quantity:newQuantity}))
             // console.log(itemId,newQuantity)
             return newQuantity
         })
