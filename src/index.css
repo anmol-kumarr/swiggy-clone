@@ -4,3 +4,12 @@
     margin: 0;
     padding: 0;
 }
+.page-not-found{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F15700;
+    font-family: 'Gilroy', sans-serif;
+    height: 90vh;
+    width: 100%;
+}
