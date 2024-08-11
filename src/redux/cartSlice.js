@@ -1,59 +1,48 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useEffect } from "react";
-import { SlActionRedo } from "react-icons/sl";
+
+// Define the initial state as an empty array
+const initialState = [];
 
 const CartSlice = createSlice({
     name: 'cart',
-    initialState:[],
+    initialState,
     reducers: {
+        // Add an item to the cart
         addToCart: (state, action) => {
-
-            state.push(action.payload)
-
-        },
-
-        updateCart: (state, action) => {
-            // return state.map(item =>
-            //     item.id === action.payload.id
-            //         ? { ...item, quantity: action.payload.quantity }
-            //         : item
-            // );
-
-            // return state.map((item) => {
-            //     if (item.id === action.payload.id) {
-            //         return {
-            //             quantity: action.payload.quantity,
-            //             ...item,
-            //         };
-            //     }
-            //     return item;
-            // });
-            // const check = state.cart.findIndex(item => item.id === action.payload.id)
-            // if (check === 1) {
-            //     state.cart[check].quantity = action.payload.quantity 
+            // const existingItem = state.find(item => item.itemId === action.payload.itemId);
+            // if (existingItem) {
+                // existingItem.quantity += action.payload.quantity;
+            // } 
+            // else {
+                state.push(action.payload);
             // }
-
-            // function updateObjectInArray(array, action) {
-            return state.map((item, index) => {
-                if (item.id !== action.payload.id) {
-                    // This isn't the item we care about - keep it as-is
-                    return item
-                }
-
-                // Otherwise, this is the one we want - return an updated value
-                return {
-                    // ...item,
-                    ...action.payload.quantity
-                }
-            })
-
-
         },
-        removeFromCart: (state, action) => {
 
+        // Update the quantity of an item in the cart
+        updateCart: (state, action) => {
+            return state.map((item) => {
+                if (item.itemId !== action.payload.itemId) {
+                    // This isn't the item we care about - keep it as-is
+                    return item;
+                }
+
+                // This is the item we want to update - set the new quantity directly
+                return {
+                    ...item, // Spread the existing properties of the item
+                    quantity: action.payload.quantity, // Set the quantity directly
+                };
+            });
+        },
+
+        // Remove an item from the cart
+        removeFromCart: (state, action) => {
+            return state.filter(item => item.itemId !== action.payload.itemId);
         }
     }
+});
 
-})
+// Export the action creators
 export const { addToCart, removeFromCart, updateCart } = CartSlice.actions;
+
+// Export the reducer
 export default CartSlice.reducer;
