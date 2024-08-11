@@ -5,7 +5,7 @@ const Counter = ({quantity, increaseQuantity, decreaseQuantity }) => {
 
     return (
         <div className="counter-cont">
-            <button onClick={decreaseQuantity} className="counter-btn"><ImMinus></ImMinus></button>
+            <button onClick={decreaseQuantity}  className="counter-btn"><ImMinus></ImMinus></button>
             <span className="counter-value">
                 {quantity}
             </span>

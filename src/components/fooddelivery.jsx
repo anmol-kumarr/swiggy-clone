@@ -18,16 +18,16 @@ function FoodDelivery({ resturantChains, foodDelivery, loading }) {
     // const loading=true;
     // const[data,setData]=useState([])
     // Array.isArray(resturantChains)&& Array.isArray(foodDelivery)&&setData(foodDelivery,resturantChains)
-    const data = []
-    const [filterName, setFilterName] = useState([])
-    useEffect(() => {
-        data.push(foodDelivery)
-        data.push(resturantChains)
-    }, [])
+    // const data = []
+    // const [filterName, setFilterName] = useState([])
+    // useEffect(() => {
+    //     data.push(foodDelivery)
+    //     data.push(resturantChains)
+    // }, [])
 
-    const filterHandler=(id)=>{
+    // const filterHandler=(id)=>{
     
-    }
+    // }
 
     return (
         <div className="delivery-section">
@@ -39,7 +39,7 @@ function FoodDelivery({ resturantChains, foodDelivery, loading }) {
                         filter.map((arr) => (
                             <div className="btn-cont" key={arr.id}>
 
-                                <button onClick={()=>filterHandler(arr.id)} className="btn">{arr.title}
+                                <button className="btn">{arr.title}
 
                                     <span>{
                                         'icon' in arr ? (<span>{arr.icon}</span>) : ('')

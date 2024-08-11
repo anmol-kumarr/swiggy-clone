@@ -28,7 +28,10 @@ const List = ({ item, index, length }) => {
 
 
     const dispatch = useDispatch()
-    let itemId =Number( item?.card?.info?.id)
+    let itemId =Number( item?.card?.info?.id);
+
+    console.log(itemId);
+    
 
     const [quantity, setQuantity] = useState(0)
     // let quantity=0
@@ -46,32 +49,23 @@ const List = ({ item, index, length }) => {
         // setQuantity(quantity+1)
     }
     const increaseQuantity = () => {
-        // setQuantity(quantity + 1 > 5 ? (5) : (quantity + 1))
-        // console.log(quantity)
-        // const itemId = id
         setQuantity(prevQuantity => {
             const newQuantity = prevQuantity + 1;
-            // dispatch(addToCart({itemId}))
-            // dispatch(updateCart({itemId,quantity:newQuantity}))
-            // dispatch(updateCart({id:itemId,quantity:newQuantity}));
-            dispatch(updateCart({id:itemId,quantity:newQuantity}))
-            // console.log(itemId,newQuantity)
-            return newQuantity
-        })
-        
-    }
+            dispatch(updateCart({ itemId, quantity: newQuantity }));
+            return newQuantity;
+        });
+    };
 
 
-    const decreaseQuantity = (id) => {
-        // setQuantity(quantity - 1 === 0 ? (0) : (quantity - 1))
-        // console.log(quantity)
+    const decreaseQuantity = () => {
+        setQuantity(prevQuantity => {
+            const newQuantity = prevQuantity - 1;
+            dispatch(updateCart({ itemId, quantity: newQuantity }));
+            return newQuantity;
+        });
 
     }
 
-    // const decreaseQuantity = () => {
-    //     setQuantity(quantity - 1 <= 5 ? (0) : (quantity - 1))
-    //     console.log(quantity)
-    // }
 
     return (<>
         <div className="menu-list-wrapper">
@@ -146,3 +140,115 @@ const List = ({ item, index, length }) => {
     )
 }
 export default List
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

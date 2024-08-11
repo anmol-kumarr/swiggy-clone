@@ -30,8 +30,9 @@ function HomePage() {
     const long = cityGeoLocation.long
     const lat = cityGeoLocation.lat
 
-    const url = `https://foodfire.onrender.com/api/restaurants?lat=${lat}&lng=${long}&page_type=DESKTOP_WEB_LISTING`
-    // const url=`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${long}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+    // const url = `https://foodfire.onrender.com/api/restaurants?lat=${lat}&lng=${long}&page_type=DESKTOP_WEB_LISTING`
+    const url=`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${long}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+    // const url2='https://cors-anywhere.herokuapp.com'
 
 
     useEffect(() => {
@@ -49,7 +50,7 @@ function HomePage() {
             setLoading(true)
             const response = await fetch(url)
             const data = await response.json()
-            // console.log(data)
+            console.log(data)
 
 
 
@@ -92,7 +93,7 @@ function HomePage() {
         }
 
     }
-
+console.log(foodDelivery)
 
     return (
         <div>
