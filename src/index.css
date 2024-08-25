@@ -1,10 +1,14 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
 @import url('https://gistcdn.githack.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css');
 *{
     /* overflow: hidden; */
     margin: 0;
     padding: 0;
 }
-.page-not-found{
+.page-not-found,.home-error-page{
+    font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,4 +16,10 @@
     font-family: 'Gilroy', sans-serif;
     height: 90vh;
     width: 100%;
+}
+.search-bar-error{
+    font-size: 30px;
+    text-align: center;
+    color: #F15700;
+    font-family: 'Gilroy', sans-serif;
 }

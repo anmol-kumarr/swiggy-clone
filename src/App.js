@@ -40,18 +40,18 @@ function App() {
 
     // </Router>
 
-    
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="collection/:collection_id/:collection_type" element={<Collections />} />
-          <Route path="resturant/:city/:resturantName/:resturantId" element={<Resturant />} />
-          <Route path="about" element={<About />} />
-          <Route path="*" element={<PagenotFound />} />
-          <Route path="/auth" element={<Auth/>} />
-        </Route>
-      </Routes>
-    
+
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="collection/:collection_id/:collection_type" element={<Collections />} />
+        <Route path="resturant/:city/:resturantName/:resturantId" element={<Resturant />} />
+        <Route path="about" element={<About />} />
+        <Route path="*" element={<PagenotFound />} />
+        <Route path="/auth" element={<Auth />} />
+      </Route>
+    </Routes>
+
 
 
 
@@ -66,9 +66,6 @@ const Layout = () => {
       <Navigation></Navigation>
       <Outlet></Outlet>
       <Footer></Footer>
-
-
-
     </div>
   )
 }
