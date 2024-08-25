@@ -47,7 +47,10 @@ function Collections() {
     return (
         <div>{
             error === true ? (
-                <h1>Something Went Wrong</h1>
+                <div className="wrong">
+
+                    <h1>Something Went Wrong</h1>
+                </div>
             ) : (<>
                 {/* <Navigation></Navigation> */}
                 <div className="collection-wrapper">

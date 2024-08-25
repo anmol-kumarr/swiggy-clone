@@ -32,7 +32,8 @@ function Footer() {
                 <div className="footer-heading">
                     <div className="footer-logo-cont">
 
-                        <SiSwiggy className="footer-logo"></SiSwiggy><span>Swiggy</span>
+
+                        <span>Foodie</span>
                     </div>
                     <p>
 

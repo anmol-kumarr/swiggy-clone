@@ -1,5 +1,5 @@
 import Hero from '../components/hero';
-import Navigation from '../components/navigation';
+
 // import UserContext from './context/userContext';
 import WhatsOnYour from '../components/whatsInyourMind';
 // import Scrollbar from './components/scrollbar';
@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 
 
 
+
 // https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.6102763&lng=85.1338404&restaurantId=88781&submitAction=ENTER
 
 function HomePage() {
@@ -24,20 +25,20 @@ function HomePage() {
     const [resturantChains, setResturnatsChains] = useState([])
     const [foodDelivery, setFoodDelivery] = useState([])
     const [footer, setFooterData] = useState([])
-    const[bestCity,setBestCity]=useState([])
-    const[bestItem,setBestItem]=useState([])
+    const [bestCity, setBestCity] = useState([])
+    const [bestItem, setBestItem] = useState([])
     const cityGeoLocation = useSelector((state) => state.location[0])
     const long = cityGeoLocation.long
     const lat = cityGeoLocation.lat
 
-    // const url = `https://foodfire.onrender.com/api/restaurants?lat=${lat}&lng=${long}&page_type=DESKTOP_WEB_LISTING`
-    const url=`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${long}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+    const url = `https://foodfire.onrender.com/api/restaurants?lat=${lat}&lng=${long}&page_type=DESKTOP_WEB_LISTING`
+    // const url=`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${long}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
     // const url2='https://cors-anywhere.herokuapp.com'
-
+    // const url =https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.59080&lng=85.13480&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
 
     useEffect(() => {
         fetchHomeData()
-    },[])
+    }, [])
 
 
     useEffect(() => {
@@ -93,12 +94,12 @@ function HomePage() {
         }
 
     }
-console.log(foodDelivery)
+    // console.log(foodDelivery)
 
     return (
         <div>
             {
-                fail === false ? (<div  className='home-page'>
+                fail === false ? (<div className='home-page'>
 
                     {/* <Navigation></Navigation> */}
                     <Hero></Hero>
@@ -121,7 +122,7 @@ console.log(foodDelivery)
                     {/* <Footer footer={footer}></Footer> */}
                 </div>
                 ) : (
-                    <div>
+                    <div className='home-error-page'>
                         <h1>Some Thing went wrong</h1>
                     </div>
                 )

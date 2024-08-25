@@ -30,7 +30,7 @@ const List = ({ item, index, length }) => {
     const dispatch = useDispatch()
     let itemId =Number( item?.card?.info?.id);
 
-    console.log(itemId);
+    // console.log(itemId);
     
 
     const [quantity, setQuantity] = useState(0)

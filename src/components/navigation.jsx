@@ -55,12 +55,12 @@ function Navigation() {
 
     }
     async function locationUpdate(modifiedValue) {
-        const locationUrl = `https://www.swiggy.com/dapi/misc/place-autocomplete?input=${modifiedValue}&type=`
+        // const locationUrl = `https://www.swiggy.com/dapi/misc/place-autocomplete?input=${modifiedValue}&type=`
         try {
-            const response = await fetch(locationUrl)
-            const locationOutput = await response.json()
+            // const response = await fetch(locationUrl)
+            // const locationOutput = await response.json()
 
-            setsuggestedLocation(locationOutput)
+            // setsuggestedLocation(locationOutput)
         }
         catch (err) {
             console.log(err)
@@ -142,9 +142,13 @@ function Navigation() {
     }
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch(`https://www.swiggy.com/dapi/misc/address-recommend?place_id=${manualCity}`)
-            const data = await response.json()
-            console.log(data)
+            // const response = await fetch(`https://proxy.cors.sh/https://www.swiggy.com/dapi/misc/address-recommend?place_id=${manualCity}`)
+            // const response = await fetch(`https://www.swiggy.com/dapi/misc/address-recommend?place_id=${manualCity}`)
+            // const data = await response.json()
+            // console.log(data)
+            // const city=data?.data?.formatted_address
+            // console.log(city)
+
         }
         fetchData()
     }, [manualCity])
@@ -177,12 +181,14 @@ function Navigation() {
     }, []);
 
     useEffect(() => {
-        console.log(searchBar)
+        // console.log(searchBar)
         const fetchData = async () => {
-            const data = await fetch(`https://www.swiggy.com/mapi/restaurants/search/suggest?lat=12.960059122809971&lng=77.57337538383284&str=${searchBar}`)
+            // const data = await fetch(`https://www.swiggy.com/mapi/restaurants/search/suggest?lat=12.960059122809971&lng=77.57337538383284&str=${searchBar}`)
+            const data = await fetch(`
+https://www.swiggy.com/dapi/restaurants/search/suggest?lat=${userCoordinates.lat}&lng=${userCoordinates.long}&str=${searchBar}&trackingId=undefined&includeIMItem=true`)
             const response = await data.json()
             setSearchBarData(response?.data?.suggestions)
-            console.log(response)
+            // console.log(response)
 
         }
         searchBar.length > 0 && fetchData()
@@ -198,8 +204,8 @@ function Navigation() {
     return (
         <div className="nav">
             <div className="logo-section">
-                <SiSwiggy className="swiggylogo"></SiSwiggy>
-                <span className="logo">SWIGGY</span>
+                {/* <SiSwiggy className="swiggylogo"></SiSwiggy> */}
+                <span className="logo">Foodie</span>
                 <span className="line"></span>
             </div>
             <div className="location" onClick={handleDivClick}>
@@ -308,7 +314,10 @@ function Navigation() {
                                 }
                             </>
                         )) : <>
-                            <h3>Error</h3>
+                            <div className="search-bar-error">
+
+                            <h3>Some Thing Went wrong</h3>
+                            </div>
                         </>
                     }
 
